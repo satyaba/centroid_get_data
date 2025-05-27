@@ -14,9 +14,9 @@ export default async ({ req, res, log, error }) => {
     const client = new Client();
 
     client
-        .setEndpoint(env.APPWRITE_URL)
-        .setProject(env.APPWRITE_PROJECT_ID)
-        .setKey(env.APPWRITE_API_KEY) // Your secret API key
+        .setEndpoint(env.APPWRITE_FUNCTION_API_ENDPOINT)
+        .setProject(env.APPWRITE_FUNCTION_PROJECT_ID)
+        .setKey(env.APPWRITE_FUNCTION_API_KEY) // Your secret API key
     ;
 
     const storage = new Storage(client)
