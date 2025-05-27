@@ -12,7 +12,7 @@ export default async ({ req, res, log, error }) => {
         .setKey(req.headers['x-appwrite-key'] ?? process.env.APPWRITE_API_KEY) // Your secret API key
     ;
 
-  log(req.headers)
+  log("Client: ", client)
 
   const paths = req.path.split("/")
 
@@ -29,7 +29,7 @@ export default async ({ req, res, log, error }) => {
         [
             Query.equal('filename', [`${paths[3]}.csv`])
         ]
-    ).catch(e => e)
+    ).catch(e => error("Error fetching document: ", e))
 
     const fileID = docsList.documents[0]['fileID'] 
     
@@ -37,8 +37,6 @@ export default async ({ req, res, log, error }) => {
 
     var enc = new TextDecoder("utf-8");
     const csv = enc.decode(file);
-
-    log(res.body, res.headers)
 
     return res.json({
         fileContent: csv
