@@ -26,8 +26,8 @@ export default async ({ req, res, log, error }) => {
     const db = new Databases(client)
 
     const docsList = await db.listDocuments(
-        env.APPWRITE_DB_ID,
-        env.APPWRITE_COLLECTION_FILES_ID,
+        process.env.APPWRITE_DB_ID,
+        process.env.APPWRITE_COLLECTION_FILES_ID,
         [
             Query.equal('filename', [`${paths[3]}.csv`])
         ]
