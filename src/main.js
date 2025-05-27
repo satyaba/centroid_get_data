@@ -12,6 +12,8 @@ export default async ({ req, res, log, error }) => {
         .setKey(req.headers['x-appwrite-key'] ?? process.env.APPWRITE_API_KEY) // Your secret API key
     ;
 
+  log(req.headers)
+
   const paths = req.path.split("/")
 
   // The req object contains the request data
