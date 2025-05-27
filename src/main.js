@@ -35,7 +35,7 @@ export default async ({ req, res, log, error }) => {
 
     const fileID = docsList.documents[0]['fileID'] 
     
-    const file = await storage.getFileDownload(env.APPWRITE_BUCKET_ID, fileID)
+    const file = await storage.getFileDownload(process.env.APPWRITE_BUCKET_ID, fileID)
 
     var enc = new TextDecoder("utf-8");
     const csv = enc.decode(file);
