@@ -4,6 +4,8 @@ import { Client, Databases, Storage, Query } from "node-appwrite";
 export default async ({ req, res, log, error }) => {
   // You can use the Appwrite SDK to interact with other services
   // For this example, we're using the Users service
+  console.log("Logging by console.log")
+  log("Logging by log()")
   const client = new Client()
   
   client
