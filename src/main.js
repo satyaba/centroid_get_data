@@ -38,6 +38,8 @@ export default async ({ req, res, log, error }) => {
     var enc = new TextDecoder("utf-8");
     const csv = enc.decode(file);
 
+    log(res.body, res.headers)
+
     return res.json({
         fileContent: csv
     });
